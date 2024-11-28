@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School Management Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="index.css"> 
+</head>
+<body>
+  <header>
+    <h1>Brighton Hill Academy Dashboard</h1>
+  </header>
+
+  <div class="container">
+    <div id="login-section">
+      <p> Welcome to Brighton Hill Academy management dashboard.</p>
+      <p>Please login in with your current role to see the data alocated to you</p>
+      <h3>Login</h3>
+    
+      <label for="role-select">Choose your role:</label>
+      <select id="role-select">
+        <option value="" disabled selected>Select your role</option>
+        <option value="student">Student</option>
+        <option value="teacher">Teacher</option>
+        <option value="admin">Admin</option>
+      </select>
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <button onclick="login()">Login</button>
+    </div>
+
+    <div id="role-sections" class="hidden">
+      <button onclick="logout()">Logout</button>
+
+      <div id="student-section" class="role-section hidden">
+        <h3>Student Dashboard</h3>
+        <label for="courses">Select a course to add:</label>
+        <select id="courses">
+          <option value="" disabled selected>Choose a course</option>
+        </select>
+        <button id="student-add-course">Add Course</button>
+        <h4>My Courses:</h4>
+        <div id="student-courses"></div>
+      </div>
+
+      <div id="teacher-section" class="role-section hidden">
+        <h3>Teacher Dashboard</h3>
+        <label for="new-student-name">Add a New Student:</label>
+        <input type="text" id="new-student-name" placeholder="Student Name">
+        <input type="number" id="new-student-score" placeholder="Performance Score">
+        <button onclick="addStudent()">Add Student</button>
+        <label for="new-course">Add a New Course:</label>
+        <input type="text" id="new-course" placeholder="Course Name">
+        <button onclick="addNewCourse()">Add Course</button>
+      </div>
+
+      <div id="admin-section" class="role-section hidden">
+        <h3>Admin Dashboard</h3>
+        <label for="new-student-name">Add a New Student:</label>
+        <input type="text" id="new-student-name" placeholder="Student Name">
+        <input type="number" id="new-student-score" placeholder="Performance Score">
+        <button onclick="addStudent()">Add Student</button>
+        <label for="new-course">Add a New Course:</label>
+        <input type="text" id="new-course" placeholder="Course Name">
+        <button onclick="addNewCourse()">Add Course</button>
+      </div>
+
+      <div class="table-section">
+        <h3>Student Table</h3>
+        <table id="student-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Performance Score</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="chart-container">
+        <canvas id="performance-chart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 School Management System. All Rights Reserved.</p>
+  </footer>
+
+  <script src="index.js">
+   
+  </script>
+</body>
+</html>
